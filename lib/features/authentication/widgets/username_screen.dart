@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
+import 'package:tiktok_clone/features/authentication/widgets/email_screen.dart';
+
+import 'form_button.dart';
 
 class UsernameScreen extends StatefulWidget {
   const UsernameScreen({super.key});
@@ -23,6 +26,20 @@ class _UsernameScreenState extends State<UsernameScreen> {
         _username = _usernameController.text;
       });
     });
+  }
+
+  @override
+  void dispose() {
+    _usernameController.dispose();
+    super.dispose();
+  }
+
+  void _onNextTap() {
+    if (_username.isEmpty) return;
+
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => const EmailScreen(),
+    ));
   }
 
   @override
@@ -76,29 +93,11 @@ class _UsernameScreenState extends State<UsernameScreen> {
               cursorColor: Theme.of(context).primaryColor,
             ),
             Gaps.v16,
-            FractionallySizedBox(
-              widthFactor: 1,
-              child: AnimatedContainer(
-                padding: const EdgeInsets.symmetric(
-                  vertical: Sizes.size16,
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(Sizes.size5),
-                  color: _username.isEmpty
-                      ? Colors.grey.shade300
-                      : Theme.of(context).primaryColor,
-                ),
-                duration: const Duration(milliseconds: 300),
-                child: const Text(
-                  "Next",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-            )
+            GestureDetector(
+                onTap: _onNextTap,
+                child: FormButton(
+                  disabled: _username.isEmpty,
+                ))
           ],
         ),
       ),
