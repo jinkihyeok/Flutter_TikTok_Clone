@@ -48,7 +48,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
   void _onSubmit() {
     if (!_isPasswordValid()) return;
     Navigator.push(context,
-        MaterialPageRoute(builder: (context) => const BirthDayScreen()));
+        MaterialPageRoute(builder: (context) => const BirhtDayScreen()));
   }
 
   void _onClrearTap() {
@@ -155,6 +155,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
                   onTap: _onSubmit,
                   child: FormButton(
                     disabled: !_isPasswordValid(),
+                    text: "Next",
                   )),
             ],
           ),
