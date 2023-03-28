@@ -47,7 +47,6 @@ class _BirhtDayScreenState extends State<BirhtDayScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text(
           "Sign up",
