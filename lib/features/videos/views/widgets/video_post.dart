@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
+import 'package:tiktok_clone/features/videos/models/video_model.dart';
 import 'package:tiktok_clone/features/videos/view_models/playback_config_vm.dart';
 import 'package:tiktok_clone/features/videos/views/widgets/video_button.dart';
 import 'package:tiktok_clone/features/videos/views/widgets/video_comments.dart';
@@ -11,9 +12,14 @@ import 'package:video_player/video_player.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class VideoPost extends ConsumerStatefulWidget {
-  const VideoPost(
-      {super.key, required this.onVideoFinished, required this.index});
+  const VideoPost({
+    super.key,
+    required this.onVideoFinished,
+    required this.index,
+    required this.videoData,
+  });
 
+  final VideoModel videoData;
   final Function onVideoFinished;
   final int index;
 
@@ -132,8 +138,9 @@ class VideoPostState extends ConsumerState<VideoPost>
           Positioned.fill(
             child: _videoPlayerController.value.isInitialized
                 ? VideoPlayer(_videoPlayerController)
-                : Container(
-                    color: Colors.black,
+                : Image.network(
+                    widget.videoData.thumbnailUrl,
+                    fit: BoxFit.cover,
                   ),
           ),
           Positioned.fill(child: GestureDetector(onTap: _onTogglePause)),
@@ -179,10 +186,10 @@ class VideoPostState extends ConsumerState<VideoPost>
             left: 10,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
-                  "@JIN & @SARANG",
-                  style: TextStyle(
+                  "@${widget.videoData.creator}",
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: Sizes.size20,
                     fontWeight: FontWeight.bold,
@@ -190,8 +197,8 @@ class VideoPostState extends ConsumerState<VideoPost>
                 ),
                 Gaps.v10,
                 Text(
-                  "This is our camping trip!",
-                  style: TextStyle(
+                  widget.videoData.description,
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: Sizes.size16,
                   ),
@@ -204,28 +211,28 @@ class VideoPostState extends ConsumerState<VideoPost>
               right: 10,
               child: Column(
                 children: [
-                  const CircleAvatar(
+                  CircleAvatar(
                     radius: 25,
                     backgroundColor: Colors.black,
                     foregroundColor: Colors.white,
                     foregroundImage: NetworkImage(
-                      "https://avatars.githubusercontent.com/u/103499016?v=4",
+                      "https://firebasestorage.googleapis.com/v0/b/tiktok-jin-clone.appspot.com/o/avatars%2F${widget.videoData.creatorUid}?alt=media&token=5c652e2e-09b1-40f3-9447-a1111d5bb213",
                     ),
                     child: Text(
-                      "JIN",
+                      widget.videoData.creator,
                     ),
                   ),
                   Gaps.v24,
-                  const VideoButton(
+                  VideoButton(
                     icon: FontAwesomeIcons.solidHeart,
-                    text: "2.9M",
+                    text: widget.videoData.likes.toString(),
                   ),
                   Gaps.v24,
                   GestureDetector(
                     onTap: () => _onCommentsTap(context),
-                    child: const VideoButton(
+                    child: VideoButton(
                       icon: FontAwesomeIcons.solidComment,
-                      text: "33K",
+                      text: widget.videoData.comments.toString(),
                     ),
                   ),
                   Gaps.v24,

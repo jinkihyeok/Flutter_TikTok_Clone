@@ -52,6 +52,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '888289282299',
     projectId: 'tiktok-jin-clone',
     authDomain: 'tiktok-jin-clone.firebaseapp.com',
+    databaseURL: 'https://tiktok-jin-clone-default-rtdb.firebaseio.com',
     storageBucket: 'tiktok-jin-clone.appspot.com',
     measurementId: 'G-6LJ9LKV3MM',
   );
@@ -61,6 +62,7 @@ class DefaultFirebaseOptions {
     appId: '1:888289282299:android:4359f1e2778b08c376485e',
     messagingSenderId: '888289282299',
     projectId: 'tiktok-jin-clone',
+    databaseURL: 'https://tiktok-jin-clone-default-rtdb.firebaseio.com',
     storageBucket: 'tiktok-jin-clone.appspot.com',
   );
 
@@ -69,6 +71,7 @@ class DefaultFirebaseOptions {
     appId: '1:888289282299:ios:a297e177b0b9d99776485e',
     messagingSenderId: '888289282299',
     projectId: 'tiktok-jin-clone',
+    databaseURL: 'https://tiktok-jin-clone-default-rtdb.firebaseio.com',
     storageBucket: 'tiktok-jin-clone.appspot.com',
     iosClientId: '888289282299-3jmccddarr7k3amg83le74j8dbabckdf.apps.googleusercontent.com',
     iosBundleId: 'com.example.tiktokClone',
