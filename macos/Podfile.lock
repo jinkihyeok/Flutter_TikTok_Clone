@@ -608,6 +608,11 @@ PODS:
     - firebase_core
     - FlutterMacOS
     - nanopb (< 2.30910.0, >= 2.30908.0)
+  - cloud_functions (4.1.0):
+    - Firebase/CoreOnly (~> 10.7.0)
+    - Firebase/Functions (~> 10.7.0)
+    - firebase_core
+    - FlutterMacOS
   - Firebase/Auth (10.7.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 10.7.0)
@@ -616,6 +621,9 @@ PODS:
   - Firebase/Firestore (10.7.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 10.7.0)
+  - Firebase/Functions (10.7.0):
+    - Firebase/CoreOnly
+    - FirebaseFunctions (~> 10.7.0)
   - Firebase/Storage (10.7.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 10.7.0)
@@ -660,6 +668,16 @@ PODS:
     - "gRPC-C++ (~> 1.44.0)"
     - leveldb-library (~> 1.22)
     - nanopb (< 2.30910.0, >= 2.30908.0)
+  - FirebaseFunctions (10.7.0):
+    - FirebaseAppCheckInterop (~> 10.0)
+    - FirebaseAuthInterop (~> 10.0)
+    - FirebaseCore (~> 10.0)
+    - FirebaseCoreExtension (~> 10.0)
+    - FirebaseMessagingInterop (~> 10.0)
+    - FirebaseSharedSwift (~> 10.0)
+    - GTMSessionFetcher/Core (< 4.0, >= 2.1)
+  - FirebaseMessagingInterop (10.7.0)
+  - FirebaseSharedSwift (10.7.0)
   - FirebaseStorage (10.7.0):
     - FirebaseAppCheckInterop (~> 10.0)
     - FirebaseAuthInterop (~> 10.0)
@@ -756,6 +774,7 @@ PODS:
 
 DEPENDENCIES:
   - cloud_firestore (from `Flutter/ephemeral/.symlinks/plugins/cloud_firestore/macos`)
+  - cloud_functions (from `Flutter/ephemeral/.symlinks/plugins/cloud_functions/macos`)
   - firebase_auth (from `Flutter/ephemeral/.symlinks/plugins/firebase_auth/macos`)
   - firebase_core (from `Flutter/ephemeral/.symlinks/plugins/firebase_core/macos`)
   - firebase_storage (from `Flutter/ephemeral/.symlinks/plugins/firebase_storage/macos`)
@@ -775,6 +794,9 @@ SPEC REPOS:
     - FirebaseCoreExtension
     - FirebaseCoreInternal
     - FirebaseFirestore
+    - FirebaseFunctions
+    - FirebaseMessagingInterop
+    - FirebaseSharedSwift
     - FirebaseStorage
     - GoogleUtilities
     - "gRPC-C++"
@@ -788,6 +810,8 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   cloud_firestore:
     :path: Flutter/ephemeral/.symlinks/plugins/cloud_firestore/macos
+  cloud_functions:
+    :path: Flutter/ephemeral/.symlinks/plugins/cloud_functions/macos
   firebase_auth:
     :path: Flutter/ephemeral/.symlinks/plugins/firebase_auth/macos
   firebase_core:
@@ -805,6 +829,7 @@ SPEC CHECKSUMS:
   abseil: ebe5b5529fb05d93a8bdb7951607be08b7fa71bc
   BoringSSL-GRPC: 3175b25143e648463a56daeaaa499c6cb86dad33
   cloud_firestore: ada6b6cea885ad634105e3d9af0e327bfafa1a4f
+  cloud_functions: a471c0a155e0fb5209ee5fca040673690cea6a97
   Firebase: 0219acf760880eeec8ce479895bd7767466d9f81
   firebase_auth: 245a4653f4f49249a5db759970e57ec27cdcd88d
   firebase_core: b2f73bfbb070109d2149e257a786e3093f99a9da
@@ -816,6 +841,9 @@ SPEC CHECKSUMS:
   FirebaseCoreExtension: f17247ba8c61e4d3c8d136b5e2de3cb4ac6a85b6
   FirebaseCoreInternal: 8845798510aae74703467480f71ac613788d0696
   FirebaseFirestore: 3963a6edd1c84b4748dab3e2c62624a29d03eca1
+  FirebaseFunctions: 6cede311274dd1e13ea4950fc9e57221d3538386
+  FirebaseMessagingInterop: c49e2766f4059ea4ef9e7c7764ed741a14aaeded
+  FirebaseSharedSwift: 993e46657e34f14fe497c4a43c1f9608dabfb2e5
   FirebaseStorage: 4841efa304543e1f9e4ca116c559c7a1ea2a9d0f
   FlutterMacOS: 8f6f14fa908a6fb3fba0cd85dbd81ec4b251fb24
   GoogleUtilities: 9aa0ad5a7bc171f8bae016300bfcfa3fb8425749
