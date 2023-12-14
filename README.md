@@ -2,7 +2,7 @@
 
 tiktok_clone_project.
 
-## Skill
+## 개발환경
 
 - os: aos, ios
 - 언어: Dart
